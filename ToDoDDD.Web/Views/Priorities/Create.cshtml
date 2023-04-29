@@ -1,0 +1,20 @@
+﻿@using ToDoDDD.Web.ViewModels
+@model IndexViewModels
+@{
+    ViewData["Title"] = "Создать приоритет";
+}
+<div class="row"> 
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Priorities" method="post">
+            <label asp-for="@Model.Priority.Name" class="form-lable"> </label>                
+            <input asp-for="@Model.Priority.Name" class="form-control"></input>
+            <span asp-validation-for="@Model.Priority.Name" class="form-text text-danger"></span>
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+    </div>
+   
+</div>
+
+
+        
+   

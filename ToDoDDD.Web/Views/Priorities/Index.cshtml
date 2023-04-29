@@ -1,0 +1,21 @@
+﻿@model List<ToDoDDD.DAL.Entitities.Priority>
+@{
+    ViewData["Title"] = "Список приоритетов";
+}
+<p>
+    <a asp-action="Create">Создать приоритет</a>
+</p>
+<table class="table">
+    
+    <tr>
+        <td>Name</td>
+        
+    </tr>
+     @foreach (var item in Model)
+        {
+    <tr>      
+            <td>@item.Name</td>
+        
+    </tr>
+        }
+</table>

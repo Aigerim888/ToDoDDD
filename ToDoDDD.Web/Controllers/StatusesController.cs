@@ -18,5 +18,26 @@ namespace ToDoDDD.Web.Controllers
             IEnumerable<Status> statuses = _uow.StatusRepository.Get();
             return View(statuses);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Status status)
+        {
+            if (status == null)
+            {
+                return NotFound();
+            }
+            status.Id = Guid.NewGuid();  
+            if(ModelState.IsValid)
+            {
+                _uow.StatusRepository.Insert(status);
+                _uow.Save();
+                return RedirectToAction("Index"); 
+            }
+            return View();  
+           
+        }
     }
 }

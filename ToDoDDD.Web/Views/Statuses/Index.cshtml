@@ -4,17 +4,19 @@
 @{
     ViewData["Title"]="Список статусов";
 }
-
+<p>
+    <a asp-action="Create">Создать статус</a>
+</p>
 
 <table class="table">
     <tr>
-        <td>Id</td>
+        
         <td>Name</td>
     </tr>
     @foreach(var item in Model)
     {
         <tr>
-            <td>@item.Id</td>
+            
             <td>@item.Name</td>
         </tr>
     }

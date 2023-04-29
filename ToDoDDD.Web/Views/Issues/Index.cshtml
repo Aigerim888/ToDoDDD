@@ -1,0 +1,30 @@
+﻿@using ToDoDDD.DAL.Entitities
+@model IEnumerable<Issue>
+@{
+    ViewData["Title"] = "Список задач";
+}
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Priority</td>
+        <td>Status</td>
+        <td>Activity</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Priority.Name</td>
+            <td>@item.Status.Name</td>
+          <td>
+            <td><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a></td>
+            <td><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+            <td><a asp-action="Open" asp-route-id="@item.Id" class="btn btn-primary">Open</a></td>
+            <td><a asp-action="Close" asp-route-id="@item.Id" class="btn btn-">Close</a></td>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,21 @@
+﻿@using ToDoDDD.Web.ViewModels
+@model IndexViewModels
+
+@{
+    ViewData["Title"] = "Добавить задачу";
+}
+<h2>Добавить задaчу</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Issues">
+            <label asp-for="@Model.Issue.Name" class="form-label">Название задачи</label>
+            <input asp-for="@Model.Issue.Name" class="form-control"></input>
+            <span asp-validation-for="@Model.Issue.Name" class="form-text tex-danger"></span>
+            
+            <label asp-for="@Model.Priority.Name" class="form-label">Приоритет</label>
+            <input asp-for="@Model.Priority.Name" class="form-control"></input>
+            <span asp-validation-for="@Model.Priority.Name"></span>
+            
+        </form>
+    </div>
+</div>

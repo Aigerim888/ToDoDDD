@@ -17,14 +17,14 @@ namespace ToDoDDD.BLL.Repositories
         public Repository(AppDbContext db)
         {
             _db = db;
-            dbset=_db.Set<T>();
+            dbset = _db.Set<T>();
         }
         public IEnumerable<T> Get()
         {
             return dbset.ToList();
         }
 
-        public T GetByID(int id)
+        public T GetByID(Guid id)
         {
             return dbset.Find(id);
         }
@@ -33,7 +33,7 @@ namespace ToDoDDD.BLL.Repositories
         {
             dbset.Add(entity);  
         }
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             T entityToDelete=dbset.Find(id);    
             Delete(entityToDelete);

@@ -20,6 +20,17 @@ namespace ToDoDDD.BLL.UOW
         private PriorityRepository priorityRepository;
         private StatusRepository statusRepository;
 
+        public PriorityRepository PriorityRepository
+        {
+            get
+            {
+                if (priorityRepository == null)
+                {
+                    priorityRepository = new PriorityRepository(context);
+                }
+                return priorityRepository;
+            }
+        }
 
         public IssueRepository IssueRepository
         {
@@ -30,17 +41,6 @@ namespace ToDoDDD.BLL.UOW
                     issueRepository = new IssueRepository(context);
                 }
                 return issueRepository;
-            }
-        }
-        public PriorityRepository PriorityRepository
-        {
-            get
-            {
-                if(PriorityRepository == null)
-                {
-                    priorityRepository=new PriorityRepository(context);
-                }
-                return priorityRepository;
             }
         }
         public StatusRepository StatusRepository

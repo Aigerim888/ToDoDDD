@@ -9,9 +9,9 @@ namespace ToDoDDD.DAL.Interfaces
         public interface IRepository<T> where T : class
         {
             IEnumerable<T> Get();
-            T GetByID(int id);
+            T GetByID(Guid id);
             void Insert(T entity);
-            void Delete(int id);
+            void Delete(Guid id);
             void Delete(T entity);
             void Update(T entity);
             void Save();
