@@ -15,5 +15,10 @@ namespace ToDoDDD.BLL.Repositories
         {
             _db=db;
         }
+
+        public void GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

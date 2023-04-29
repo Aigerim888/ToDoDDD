@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ToDoDDD.BLL.UOW;
 using ToDoDDD.DAL.Entitities;
 using ToDoDDD.Web.ViewModels;
@@ -36,15 +37,16 @@ namespace ToDoDDD.Web.Controllers
                 _uow.Save();
                 return RedirectToAction("Index");
             }
-            Priority priority = new Priority();
-            IndexViewModels ivm = new IndexViewModels
-            {
-                Priority = priority,
-              
 
-            };
+            IndexViewModels ivm = new IndexViewModels();
+           
+
+
             return View();  
         }
-
-    }
+        public IActionResult Details(int id)
+        {
+        
+           
+        }
 }

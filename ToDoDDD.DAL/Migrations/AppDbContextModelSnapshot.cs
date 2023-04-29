@@ -28,6 +28,10 @@ namespace ToDoDDD.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -86,7 +90,7 @@ namespace ToDoDDD.DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("ToDoDDD.DAL.Entitities.Status", "Status")
-                        .WithMany("Issues")
+                        .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -97,11 +101,6 @@ namespace ToDoDDD.DAL.Migrations
                 });
 
             modelBuilder.Entity("ToDoDDD.DAL.Entitities.Priority", b =>
-                {
-                    b.Navigation("Issues");
-                });
-
-            modelBuilder.Entity("ToDoDDD.DAL.Entitities.Status", b =>
                 {
                     b.Navigation("Issues");
                 });

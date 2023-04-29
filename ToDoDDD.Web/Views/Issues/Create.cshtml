@@ -16,6 +16,10 @@
             <input asp-for="@Model.Priority.Name" class="form-control"></input>
             <span asp-validation-for="@Model.Priority.Name"></span>
             
+            <label asp-for="@Model.Issue.Description" class="form-label">Описание задачи</label>
+            <textarea class="form-control" asp-for="@Model.Issue.Description"></textarea>
+            <span asp-validation-for="@Model.Issue.Description" class="form-text text-danger"></span>
+            <button type="submit" class="btn btn-success">Добавить задачу</button>
         </form>
     </div>
 </div>

@@ -12,7 +12,7 @@ using ToDoDDD.DAL.Datas;
 namespace ToDoDDD.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230429075735_init")]
+    [Migration("20230429150756_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -30,6 +30,10 @@ namespace ToDoDDD.DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -89,7 +93,7 @@ namespace ToDoDDD.DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("ToDoDDD.DAL.Entitities.Status", "Status")
-                        .WithMany("Issues")
+                        .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -100,11 +104,6 @@ namespace ToDoDDD.DAL.Migrations
                 });
 
             modelBuilder.Entity("ToDoDDD.DAL.Entitities.Priority", b =>
-                {
-                    b.Navigation("Issues");
-                });
-
-            modelBuilder.Entity("ToDoDDD.DAL.Entitities.Status", b =>
                 {
                     b.Navigation("Issues");
                 });
