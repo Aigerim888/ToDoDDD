@@ -10,7 +10,6 @@ namespace ToDoDDD.DAL.Entitities
     {
         public string Name { get; set; }
         
-        public Status? Status { get;set; }
         public virtual List<Issue> Issues { get; set; }
 
     }

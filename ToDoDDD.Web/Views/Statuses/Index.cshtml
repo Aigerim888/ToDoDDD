@@ -1,0 +1,21 @@
+﻿@using ToDoDDD.DAL.Entitities;
+
+@model IEnumerable<Status>
+@{
+    ViewData["Title"]="Список статусов";
+}
+
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>
