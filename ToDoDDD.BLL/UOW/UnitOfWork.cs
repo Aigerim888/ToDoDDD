@@ -17,7 +17,7 @@ namespace ToDoDDD.BLL.UOW
         }
 
         private IssueRepository issueRepository;   
-        private PriorityRepository PriorityRepository;
+        private PriorityRepository priorityRepository;
         private StatusRepository statusRepository;
 
 
@@ -38,9 +38,9 @@ namespace ToDoDDD.BLL.UOW
             {
                 if(PriorityRepository == null)
                 {
-                    PriorityRepository=new PriorityRepository(context);
+                    priorityRepository=new PriorityRepository(context);
                 }
-                return PriorityRepository;
+                return priorityRepository;
             }
         }
         public StatusRepository StatusRepository
