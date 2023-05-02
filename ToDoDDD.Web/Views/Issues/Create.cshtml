@@ -10,11 +10,17 @@
         <form asp-action="Create" asp-controller="Issues">
             <label asp-for="@Model.Issue.Name" class="form-label">Название задачи</label>
             <input asp-for="@Model.Issue.Name" class="form-control"></input>
-            <span asp-validation-for="@Model.Issue.Name" class="form-text tex-danger"></span>
+            <span asp-validation-for="@Model.Issue.Name" class="form-text text-danger"></span>
             
-            <label asp-for="@Model.Priority.Name" class="form-label">Приоритет</label>
-            <input asp-for="@Model.Priority.Name" class="form-control"></input>
-            <span asp-validation-for="@Model.Priority.Name"></span>
+        <div class="row">
+                <label asp-for="@Model.Priority.Id" class="form-label">Приоритет</label>
+             <div class="col-md-4 mb-3">
+                    <select asp-for="@Model.Priority.Id" asp-items="ViewBag.Priorities">
+                        <option selected="selected" unabled="unabled">Выберите приоритет</option>
+                 </select>
+                    <span asp-validation-for="@Model.Priority.Id" class="form-text text-danger"></span>
+                </div>           
+        </div>
             
             <label asp-for="@Model.Issue.Description" class="form-label">Описание задачи</label>
             <textarea class="form-control" asp-for="@Model.Issue.Description"></textarea>
@@ -23,3 +29,6 @@
         </form>
     </div>
 </div>
+
+
+    
